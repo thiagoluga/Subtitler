@@ -1,0 +1,15 @@
+C:\repos\thiagoluga\Subtitler\Subtitler\bin\Debug\netcoreapp3.1\Subtitler.exe
+C:\repos\thiagoluga\Subtitler\Subtitler\bin\Debug\netcoreapp3.1\Subtitler.deps.json
+C:\repos\thiagoluga\Subtitler\Subtitler\bin\Debug\netcoreapp3.1\Subtitler.runtimeconfig.json
+C:\repos\thiagoluga\Subtitler\Subtitler\bin\Debug\netcoreapp3.1\Subtitler.runtimeconfig.dev.json
+C:\repos\thiagoluga\Subtitler\Subtitler\bin\Debug\netcoreapp3.1\Subtitler.dll
+C:\repos\thiagoluga\Subtitler\Subtitler\bin\Debug\netcoreapp3.1\Subtitler.pdb
+C:\repos\thiagoluga\Subtitler\Subtitler\obj\Debug\netcoreapp3.1\Subtitler.csprojAssemblyReference.cache
+C:\repos\thiagoluga\Subtitler\Subtitler\obj\Debug\netcoreapp3.1\Subtitler.SubtitlerForm.resources
+C:\repos\thiagoluga\Subtitler\Subtitler\obj\Debug\netcoreapp3.1\Subtitler.csproj.GenerateResource.cache
+C:\repos\thiagoluga\Subtitler\Subtitler\obj\Debug\netcoreapp3.1\Subtitler.AssemblyInfoInputs.cache
+C:\repos\thiagoluga\Subtitler\Subtitler\obj\Debug\netcoreapp3.1\Subtitler.AssemblyInfo.cs
+C:\repos\thiagoluga\Subtitler\Subtitler\obj\Debug\netcoreapp3.1\Subtitler.csproj.CoreCompileInputs.cache
+C:\repos\thiagoluga\Subtitler\Subtitler\obj\Debug\netcoreapp3.1\Subtitler.dll
+C:\repos\thiagoluga\Subtitler\Subtitler\obj\Debug\netcoreapp3.1\Subtitler.pdb
+C:\repos\thiagoluga\Subtitler\Subtitler\obj\Debug\netcoreapp3.1\Subtitler.genruntimeconfig.cache
