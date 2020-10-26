@@ -41,24 +41,20 @@ namespace Subtitler
 
         private void buttonSubtitler_Click(object sender, EventArgs e)
         {
-            var selectedMethodSubtitler = comboBoxMethod.SelectedItem.ToString();
             var folder = textBoxFolder.Text;
 
-            if (selectedMethodSubtitler == Constants.MethodOrderedList)
+            foreach (ListViewItem result in listViewResult.Items)
             {
-                foreach (ListViewItem result in listViewResult.Items)
-                {
-                    var before = result.Text;
-                    var fullFileBefore = Path.Combine(folder, before);
+                var before = result.Text;
+                var fullFileBefore = Path.Combine(folder, before);
 
-                    var after = result.SubItems[1].Text;
-                    var fullFileafter = Path.Combine(folder, after);
+                var after = result.SubItems[1].Text;
+                var fullFileafter = Path.Combine(folder, after);
 
-                    File.Move(fullFileBefore, fullFileafter);
-                }
-
-                MessageBox.Show("Successfully renamed subtitiles!");
+                File.Move(fullFileBefore, fullFileafter);
             }
+
+            MessageBox.Show("Successfully renamed subtitiles!");
         }
 
         private void buttonCleanEpisodes_Click(object sender, EventArgs e)
@@ -117,24 +113,27 @@ namespace Subtitler
 
         private void PreviewSubtitiles()
         {
-            if (comboBoxSubtitlesFileExtension.SelectedIndex < 0 && comboBoxSubtitlesFileExtension.SelectedIndex < 0)
+            if (comboBoxSubtitlesFileExtension.SelectedIndex < 0 || comboBoxSubtitlesFileExtension.SelectedIndex < 0 || comboBoxMethod.SelectedIndex < 0)
             {
                 return;
             }
 
-            var subtitleFileExtension = comboBoxSubtitlesFileExtension.SelectedItem.ToString();
-
-            foreach (var subtitile in listBoxSubtitles.Items)
+            if (comboBoxMethod.SelectedItem.ToString() == Constants.MethodOrderedList)
             {
-                var fullEpisodeName = listBoxEpisodes.Items[listBoxSubtitles.Items.IndexOf(subtitile)].ToString();
-                var episodeName = Path.GetFileNameWithoutExtension(fullEpisodeName);
-                var newSubtitleName = $"{episodeName}.{subtitleFileExtension}";
+                var subtitleFileExtension = comboBoxSubtitlesFileExtension.SelectedItem.ToString();
 
-                //string[] row = { subtitile.ToString(), newSubtitleName };
-                var listViewItem = new ListViewItem();
-                listViewItem.Text = subtitile.ToString();
-                listViewItem.SubItems.Add(newSubtitleName);
-                listViewResult.Items.Add(listViewItem);
+                foreach (var subtitile in listBoxSubtitles.Items)
+                {
+                    var fullEpisodeName = listBoxEpisodes.Items[listBoxSubtitles.Items.IndexOf(subtitile)].ToString();
+                    var episodeName = Path.GetFileNameWithoutExtension(fullEpisodeName);
+                    var newSubtitleName = $"{episodeName}.{subtitleFileExtension}";
+
+                    //string[] row = { subtitile.ToString(), newSubtitleName };
+                    var listViewItem = new ListViewItem();
+                    listViewItem.Text = subtitile.ToString();
+                    listViewItem.SubItems.Add(newSubtitleName);
+                    listViewResult.Items.Add(listViewItem);
+                }
             }
         }
     }
