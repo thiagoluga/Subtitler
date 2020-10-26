@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30517.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Subtitler", "Subtitler\Subtitler.csproj", "{ED366B9A-397B-4C38-913E-5D3E5BA8E9FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Subtitler", "src\Subtitler\Subtitler.csproj", "{ED366B9A-397B-4C38-913E-5D3E5BA8E9FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Subtitler.Core", "src\Subtitler.Core\Subtitler.Core\Subtitler.Core.csproj", "{DDFE06B6-D747-4B20-94D7-614C05D11257}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{ED366B9A-397B-4C38-913E-5D3E5BA8E9FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED366B9A-397B-4C38-913E-5D3E5BA8E9FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED366B9A-397B-4C38-913E-5D3E5BA8E9FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDFE06B6-D747-4B20-94D7-614C05D11257}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDFE06B6-D747-4B20-94D7-614C05D11257}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDFE06B6-D747-4B20-94D7-614C05D11257}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDFE06B6-D747-4B20-94D7-614C05D11257}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
