@@ -5,5 +5,7 @@
         public EpisodeConfiguration EpisodeConfiguration { get; set; }
 
         public SubtitleConfiguration SubtitleConfiguration { get; set; }
+
+        public SettingsConfiguration SettingsConfiguration { get; set; }
     }
 }

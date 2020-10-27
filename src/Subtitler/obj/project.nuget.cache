@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "yAfhUNIr3W0MnVrLS2ajJoWyG1fDcSYQkjOGJHYkHMXoMn5m7Gjf1H/Y13Z2sXYW6/qkFLjsFnQ3fb45+WRx4g==",
+  "dgSpecHash": "zAIHYA5MaF1SjM+LkHEAwz2Cmlco3b7AtCfkqUC47HLiwlzYwp3Lls+QvCDpr1SNFMRM+QCnQyILUmD8yVO+yQ==",
   "success": true,
   "projectFilePath": "C:\\repos\\thiagoluga\\Subtitler\\src\\Subtitler\\Subtitler.csproj",
   "expectedPackageFiles": [
@@ -31,6 +31,7 @@
     "C:\\Users\\tmaestrellilugarini\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.9\\microsoft.extensions.primitives.3.1.9.nupkg.sha512",
     "C:\\Users\\tmaestrellilugarini\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\tmaestrellilugarini\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "C:\\Users\\tmaestrellilugarini\\.nuget\\packages\\playlistsnet\\1.1.2\\playlistsnet.1.1.2.nupkg.sha512",
     "C:\\Users\\tmaestrellilugarini\\.nuget\\packages\\system.diagnostics.eventlog\\4.7.0\\system.diagnostics.eventlog.4.7.0.nupkg.sha512",
     "C:\\Users\\tmaestrellilugarini\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
     "C:\\Users\\tmaestrellilugarini\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"

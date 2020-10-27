@@ -13,6 +13,7 @@
           "Microsoft.Extensions.Configuration.FileExtensions": "3.1.9",
           "Microsoft.Extensions.Configuration.Json": "3.1.9",
           "Microsoft.Extensions.Hosting": "3.1.9",
+          "PlaylistsNET": "1.1.2",
           "Subtitler.Core": "1.0.0"
         },
         "runtime": {
@@ -317,6 +318,14 @@
           "System.Security.Principal.Windows": "4.7.0"
         }
       },
+      "PlaylistsNET/1.1.2": {
+        "runtime": {
+          "lib/netstandard2.0/PlaylistsNET.dll": {
+            "assemblyVersion": "1.0.6.0",
+            "fileVersion": "1.0.6.0"
+          }
+        }
+      },
       "System.Diagnostics.EventLog/4.7.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0",
@@ -532,6 +541,13 @@
       "sha512": "sha512-KSrRMb5vNi0CWSGG1++id2ZOs/1QhRqROt+qgbEAdQuGjGrFcl4AOl4/exGPUYz2wUnU42nvJqon1T3U0kPXLA==",
       "path": "microsoft.win32.registry/4.7.0",
       "hashPath": "microsoft.win32.registry.4.7.0.nupkg.sha512"
+    },
+    "PlaylistsNET/1.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IGzVterTV49b9FjzY7gMUcxnzOvVDj6L07pjB821m+k2iHWazy/OhIvDCvGSMx1cvkY9ZBajXpQO5uUCZY51vw==",
+      "path": "playlistsnet/1.1.2",
+      "hashPath": "playlistsnet.1.1.2.nupkg.sha512"
     },
     "System.Diagnostics.EventLog/4.7.0": {
       "type": "package",

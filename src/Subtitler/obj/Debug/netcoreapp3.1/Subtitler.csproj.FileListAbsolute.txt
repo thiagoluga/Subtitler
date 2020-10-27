@@ -24,7 +24,6 @@ C:\repos\thiagoluga\Subtitler\src\Subtitler\obj\Debug\netcoreapp3.1\Subtitler.Su
 C:\repos\thiagoluga\Subtitler\src\Subtitler\obj\Debug\netcoreapp3.1\Subtitler.csproj.GenerateResource.cache
 C:\repos\thiagoluga\Subtitler\src\Subtitler\obj\Debug\netcoreapp3.1\Subtitler.AssemblyInfoInputs.cache
 C:\repos\thiagoluga\Subtitler\src\Subtitler\obj\Debug\netcoreapp3.1\Subtitler.AssemblyInfo.cs
-C:\repos\thiagoluga\Subtitler\src\Subtitler\obj\Debug\netcoreapp3.1\Subtitler.csproj.CoreCompileInputs.cache
 C:\repos\thiagoluga\Subtitler\src\Subtitler\obj\Debug\netcoreapp3.1\Subtitler.dll
 C:\repos\thiagoluga\Subtitler\src\Subtitler\obj\Debug\netcoreapp3.1\Subtitler.pdb
 C:\repos\thiagoluga\Subtitler\src\Subtitler\obj\Debug\netcoreapp3.1\Subtitler.genruntimeconfig.cache
@@ -57,3 +56,5 @@ C:\repos\thiagoluga\Subtitler\src\Subtitler\bin\Debug\netcoreapp3.1\Microsoft.Ex
 C:\repos\thiagoluga\Subtitler\src\Subtitler\bin\Debug\netcoreapp3.1\Subtitler.Core.pdb
 C:\repos\thiagoluga\Subtitler\src\Subtitler\obj\Debug\netcoreapp3.1\Subtitler.csproj.CopyComplete
 C:\repos\thiagoluga\Subtitler\src\Subtitler\bin\Debug\netcoreapp3.1\appsettings.json
+C:\repos\thiagoluga\Subtitler\src\Subtitler\bin\Debug\netcoreapp3.1\PlaylistsNET.dll
+C:\repos\thiagoluga\Subtitler\src\Subtitler\obj\Debug\netcoreapp3.1\Subtitler.csproj.CoreCompileInputs.cache

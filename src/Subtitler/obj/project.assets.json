@@ -353,6 +353,15 @@
           }
         }
       },
+      "PlaylistsNET/1.1.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/PlaylistsNET.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/PlaylistsNET.dll": {}
+        }
+      },
       "System.Diagnostics.EventLog/4.7.0": {
         "type": "package",
         "dependencies": {
@@ -892,6 +901,20 @@
         "version.txt"
       ]
     },
+    "PlaylistsNET/1.1.2": {
+      "sha512": "IGzVterTV49b9FjzY7gMUcxnzOvVDj6L07pjB821m+k2iHWazy/OhIvDCvGSMx1cvkY9ZBajXpQO5uUCZY51vw==",
+      "type": "package",
+      "path": "playlistsnet/1.1.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/PlaylistsNET.dll",
+        "lib/netstandard1.4/PlaylistsNET.dll",
+        "lib/netstandard2.0/PlaylistsNET.dll",
+        "playlistsnet.1.1.2.nupkg.sha512",
+        "playlistsnet.nuspec"
+      ]
+    },
     "System.Diagnostics.EventLog/4.7.0": {
       "sha512": "iDoKGQcRwX0qwY+eAEkaJGae0d/lHlxtslO+t8pJWAUxlvY3tqLtVOPnW2UU4cFjP0Y/L1QBqhkZfSyGqVMR2w==",
       "type": "package",
@@ -1032,6 +1055,7 @@
       "Microsoft.Extensions.Configuration.FileExtensions >= 3.1.9",
       "Microsoft.Extensions.Configuration.Json >= 3.1.9",
       "Microsoft.Extensions.Hosting >= 3.1.9",
+      "PlaylistsNET >= 1.1.2",
       "Subtitler.Core >= 1.0.0"
     ]
   },
@@ -1105,6 +1129,10 @@
           "Microsoft.Extensions.Hosting": {
             "target": "Package",
             "version": "[3.1.9, )"
+          },
+          "PlaylistsNET": {
+            "target": "Package",
+            "version": "[1.1.2, )"
           }
         },
         "imports": [
