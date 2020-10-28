@@ -2,6 +2,8 @@
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using Subtitler.Core.Config;
+using Subtitler.Forms;
 
 namespace Subtitler
 {
@@ -65,6 +67,36 @@ namespace Subtitler
             }
         }
 
+        public static void LoadComboBoxPlaylist(ComboBox comboBoxPlaylist, CheckBox checkBoxPlaylist, SettingsConfiguration settings)
+        {
+            comboBoxPlaylist.Items.Add(Constants.WinMediaPlayerPLS);
+            comboBoxPlaylist.Items.Add(Constants.WinampM3U);
+
+            bool playlistChecked = settings.PlaylistChecked;
+            checkBoxPlaylist.Checked = playlistChecked;
+            comboBoxPlaylist.Enabled = playlistChecked;
+
+            try
+            {
+                string playlistDefault = settings.PlaylistDefault;
+                SelectItem(comboBoxPlaylist, playlistDefault, true);
+            }
+            catch (Exception)
+            {
+                SelectFirstItem(comboBoxPlaylist);
+            }
+        }
+
+        public static void LoadTextBoxFolder(TextBox textBoxFolder, SettingsConfiguration settings)
+        {
+            string folderDefault = settings.FolderDefault;
+
+            if (!string.IsNullOrWhiteSpace(folderDefault))
+            {
+                textBoxFolder.Text = folderDefault;
+            }
+        }
+
         public static void ComboBoxSelectedIndexChanged(object sender, ListBox listBox, string folder, Label labelTotal)
         {
             if (!string.IsNullOrWhiteSpace(folder))
@@ -96,6 +128,19 @@ namespace Subtitler
             }
 
             comboBox.SelectedIndex = 0;
+        }
+
+        public static void SelectItem(ComboBox comboBox, string item, bool selectFirstIfCantFind)
+        {
+            var findIndex = comboBox.FindStringExact(item);
+            if (findIndex == -1 && selectFirstIfCantFind)
+            {
+                SelectFirstItem(comboBox);
+            }
+            else
+            {
+                comboBox.SelectedIndex = findIndex;
+            }
         }
 
         public static void Clean(ComboBox comboBox)

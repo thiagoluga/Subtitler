@@ -1,25 +1,32 @@
 ﻿using System;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Forms;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using PlaylistsNET.Content;
 using PlaylistsNET.Models;
 using Subtitler.Core.Config;
+using Subtitler.Core.Helpers;
 
-namespace Subtitler
+namespace Subtitler.Forms
+
 {
-    public partial class SubtitlerForm : Form
+    public partial class MainForm : Form
     {
         private readonly IServiceProvider serviceProvider;
         private readonly AppSettings settings;
+        private readonly SettingsForm settingsForm;
 
-        public SubtitlerForm(IServiceProvider serviceProvider, IOptions<AppSettings> settings)
+        public MainForm(IServiceProvider serviceProvider, IOptions<AppSettings> settings)
         {
             InitializeComponent();
 
             this.serviceProvider = serviceProvider;
             this.settings = settings.Value;
+            this.settingsForm = this.serviceProvider.GetRequiredService<SettingsForm>();
+            settingsForm.Closed += (s, args) => LoadSettingsConfiguration();
 
             SetWithHeigth();
             FillInitialData();
@@ -74,6 +81,11 @@ namespace Subtitler
             var checkBoxPlaylistChecked = (sender as CheckBox).Checked;
             comboBoxPlaylist.Enabled = checkBoxPlaylistChecked;
         }
+
+        private void buttonSettings_Click(object sender, EventArgs e)
+        {
+            OpenSettingsForm();
+        }
         #endregion
 
         #region ComboBox SelectedIndexChanged
@@ -105,16 +117,20 @@ namespace Subtitler
 
         private void FillInitialData()
         {
-            Utils.BrowseFolder(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
+            //Utils.BrowseFolder(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
 
             comboBoxEpisodesFileExtension.Items.AddRange(this.settings.EpisodeConfiguration.FileExtensions);
             comboBoxSubtitlesFileExtension.Items.AddRange(this.settings.SubtitleConfiguration.FileExtensions);
 
             comboBoxMethod.Items.Add(Constants.MethodOrderedList);
 
-            comboBoxPlaylist.Items.Add(Constants.WinMediaPlayerPLS);
-            comboBoxPlaylist.Items.Add(Constants.WinampM3U);
-            Utils.SelectFirstItem(comboBoxPlaylist);
+            LoadSettingsConfiguration();
+        }
+
+        private void LoadSettingsConfiguration()
+        {
+            Utils.LoadComboBoxPlaylist(comboBoxPlaylist, checkBoxPlaylist, this.settings.SettingsConfiguration);
+            Utils.LoadTextBoxFolder(textBoxFolder, this.settings.SettingsConfiguration);
         }
 
         private void FillComboBoxData()
@@ -190,14 +206,16 @@ namespace Subtitler
 
         private void CreatePlaylist()
         {
-            var folder = textBoxFolder.Text;
+            string folder = textBoxFolder.Text;
             string textPlaylist = string.Empty;
+            string playlistExtension = string.Empty;
 
             switch (comboBoxPlaylist.SelectedItem)
             {
                 case Constants.WinMediaPlayerPLS:
 
                     PlsPlaylist plsPlaylist = new PlsPlaylist();
+                    playlistExtension = "pls";
 
                     foreach (var episode in listBoxEpisodes.Items)
                     {
@@ -216,6 +234,7 @@ namespace Subtitler
                 case Constants.WinampM3U:
 
                     M3uPlaylist m3uPlaylist = new M3uPlaylist();
+                    playlistExtension = "m3u";
 
                     foreach (var episode in listBoxEpisodes.Items)
                     {
@@ -236,13 +255,18 @@ namespace Subtitler
             }
 
             string playlistName = $"Playlist - {Utils.GetTimestamp(DateTime.Now)}";
-            string playlistFullName = Path.Combine(folder, playlistName);
+            string playlistFullName = Path.Combine(folder, $"{playlistName}.{playlistExtension}");
 
             using (FileStream fs = File.Create(playlistFullName))
             {
                 byte[] info = new UTF8Encoding(true).GetBytes(textPlaylist);
                 fs.Write(info, 0, info.Length);
             }
+        }
+
+        private void OpenSettingsForm()
+        {
+            settingsForm.ShowDialog();
         }
     }
 }

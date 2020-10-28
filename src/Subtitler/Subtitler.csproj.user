@@ -4,7 +4,10 @@
     <_LastSelectedProfileId>C:\repos\thiagoluga\Subtitler\src\Subtitler\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Update="SubtitlerForm.cs">
+    <Compile Update="Forms\SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

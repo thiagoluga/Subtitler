@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using Subtitler.Core.Config;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Subtitler.Forms;
 
 namespace Subtitler
 {
@@ -25,7 +26,7 @@ namespace Subtitler
                             .ConfigureAppConfiguration((context, builder) =>
                             {
                                 // Add other configuration files...
-                                builder.AddJsonFile("appsettings.local.json", optional: true);
+                                builder.AddJsonFile("appsettings.json", optional: true, true);
                             })
                             .ConfigureServices((context, services) =>
                             {
@@ -38,13 +39,14 @@ namespace Subtitler
                             .Build();
 
             var services = host.Services;
-            var mainForm = services.GetRequiredService<SubtitlerForm>();
+            var mainForm = services.GetRequiredService<MainForm>();
             Application.Run(mainForm);
         }
 
         private static void ConfigureServices(IConfiguration configuration, IServiceCollection services)
         {
-            services.AddSingleton<SubtitlerForm>();
+            services.AddSingleton<MainForm>();
+            services.AddSingleton<SettingsForm>();
             services.Configure<AppSettings>(configuration);
         }
     }

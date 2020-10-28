@@ -1,9 +1,9 @@
 ﻿using System.IO;
 using System.Windows.Forms;
 
-namespace Subtitler
+namespace Subtitler.Forms
 {
-    partial class SubtitlerForm
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -60,6 +60,7 @@ namespace Subtitler
             this.labelTotalResults = new System.Windows.Forms.Label();
             this.comboBoxPlaylist = new System.Windows.Forms.ComboBox();
             this.checkBoxPlaylist = new System.Windows.Forms.CheckBox();
+            this.buttonSettings = new System.Windows.Forms.Button();
             this.groupBoxEpisodes.SuspendLayout();
             this.groupBoxSubtitiles.SuspendLayout();
             this.groupBoxResult.SuspendLayout();
@@ -347,11 +348,22 @@ namespace Subtitler
             this.checkBoxPlaylist.UseVisualStyleBackColor = true;
             this.checkBoxPlaylist.CheckedChanged += new System.EventHandler(this.checkBoxPlaylist_CheckedChanged);
             // 
-            // SubtitlerForm
+            // buttonSettings
+            // 
+            this.buttonSettings.Location = new System.Drawing.Point(928, 26);
+            this.buttonSettings.Name = "buttonSettings";
+            this.buttonSettings.Size = new System.Drawing.Size(117, 23);
+            this.buttonSettings.TabIndex = 16;
+            this.buttonSettings.Text = "Settings";
+            this.buttonSettings.UseVisualStyleBackColor = true;
+            this.buttonSettings.Click += new System.EventHandler(this.buttonSettings_Click);
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1057, 587);
+            this.Controls.Add(this.buttonSettings);
             this.Controls.Add(this.checkBoxPlaylist);
             this.Controls.Add(this.comboBoxPlaylist);
             this.Controls.Add(this.labelTotalResults);
@@ -366,7 +378,7 @@ namespace Subtitler
             this.Controls.Add(this.buttonBrowseFolder);
             this.Controls.Add(this.textBoxFolder);
             this.Controls.Add(this.buttonSubtitler);
-            this.Name = "SubtitlerForm";
+            this.Name = "MainForm";
             this.Text = "Subtitler";
             this.groupBoxEpisodes.ResumeLayout(false);
             this.groupBoxEpisodes.PerformLayout();
@@ -409,5 +421,6 @@ namespace Subtitler
         private Label labelTotalResults;
         private ComboBox comboBoxPlaylist;
         private CheckBox checkBoxPlaylist;
+        private Button buttonSettings;
     }
 }
