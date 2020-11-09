@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 using Subtitler.Core.Config;
-using Subtitler.Forms;
+using Subtitler.Core.Helpers;
 
 namespace Subtitler
 {
@@ -89,13 +91,30 @@ namespace Subtitler
 
         public static void LoadTextBoxFolder(TextBox textBoxFolder, SettingsConfiguration settings)
         {
-            string folderDefault = settings.FolderDefault;
+            string[] args = Environment.GetCommandLineArgs();
+            ArgumentsHelper cmdline = new ArgumentsHelper(args);
+            string cd = cmdline["cd"];
 
-            if (!string.IsNullOrWhiteSpace(folderDefault))
+            if(!string.IsNullOrWhiteSpace(cd))
             {
-                textBoxFolder.Text = folderDefault;
+                textBoxFolder.Text = cd;
+            }
+            else
+            {
+                string folderDefault = settings.FolderDefault;
+
+                if (!string.IsNullOrWhiteSpace(folderDefault))
+                {
+                    textBoxFolder.Text = folderDefault;
+                }
             }
         }
+
+        //private static void LoadSettingsConfiguration(SettingsConfiguration settings)
+        //{
+        //    Utils.LoadComboBoxPlaylist(comboBoxPlaylist, checkBoxPlaylist, settings.SettingsConfiguration);
+        //    Utils.LoadTextBoxFolder(textBoxFolder, this.settings.SettingsConfiguration);
+        //}
 
         public static void ComboBoxSelectedIndexChanged(object sender, ListBox listBox, string folder, Label labelTotal)
         {
@@ -164,6 +183,58 @@ namespace Subtitler
         public static string GetTimestamp(DateTime value)
         {
             return value.ToString("yyyyMMddHHmmssffff");
+        }
+
+        public static void StartShellMenu(string arguments)
+        {
+            try
+            {
+                Process process = new Process();
+                ProcessStartInfo startInfo = new ProcessStartInfo
+                {
+                    FileName = Utils.GetShellMenuExecutable(),
+                    Arguments = arguments,
+                    Verb = "runas",
+                    UseShellExecute = true,
+                    CreateNoWindow = true
+                };
+
+                process.StartInfo = startInfo;
+                process.Start();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        //public static string GetSubtitlerExecutable()
+        //{
+        //string codeBase = Assembly.GetEntryAssembly().CodeBase;
+        //UriBuilder uri = new UriBuilder(codeBase);
+        //string path = Uri.UnescapeDataString(uri.Path);
+        //string pathDirectoryName = Path.GetDirectoryName(path);
+        //string fileName = Path.GetFileName(path);
+        //string fileNameExe = Path.ChangeExtension(fileName, "exe");
+        //string fullPath = Path.Combine(pathDirectoryName, fileNameExe);
+        //return fullPath;
+        //}
+
+        public static string GetSubtitlerExecutable()
+        {
+            return Process.GetCurrentProcess().MainModule.FileName;
+        }
+
+        public static string GetShellMenuExecutable()
+        {
+            string codeBase = Assembly.GetEntryAssembly().CodeBase;
+            UriBuilder uri = new UriBuilder(codeBase);
+            string path = Uri.UnescapeDataString(uri.Path);
+            string pathDirectoryName = Path.GetDirectoryName(path);
+            string fileNameExe = "Subtitler.ShellMenu2.exe";
+            string fullPath = Path.Combine(pathDirectoryName, fileNameExe);
+            return fullPath;
         }
     }
 }

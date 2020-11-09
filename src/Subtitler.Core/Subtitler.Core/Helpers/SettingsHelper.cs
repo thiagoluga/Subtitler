@@ -4,7 +4,7 @@ using System.IO;
 namespace Subtitler.Core.Helpers
 {
     // Reference: https://stackoverflow.com/questions/41653688/asp-net-core-appsettings-json-update-in-code
-    public static class SettingsHelpers
+    public static class SettingsHelper
     {
         public static void AddOrUpdateAppSetting<T>(string sectionPathKey, T value)
         {

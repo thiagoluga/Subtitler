@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Subtitler.Core\Subtitler.Core\Subtitler.Core.csproj" />
+    <ProjectReference Include="..\Subtitler.ShellMenu\Subtitler.ShellMenu.csproj" />
   </ItemGroup>
 
   <ItemGroup>

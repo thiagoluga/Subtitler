@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Forms;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,7 +16,6 @@ namespace Subtitler.Forms
     {
         private readonly IServiceProvider serviceProvider;
         private readonly AppSettings settings;
-        private readonly SettingsForm settingsForm;
 
         public MainForm(IServiceProvider serviceProvider, IOptions<AppSettings> settings)
         {
@@ -25,8 +23,6 @@ namespace Subtitler.Forms
 
             this.serviceProvider = serviceProvider;
             this.settings = settings.Value;
-            this.settingsForm = this.serviceProvider.GetRequiredService<SettingsForm>();
-            settingsForm.Closed += (s, args) => LoadSettingsConfiguration();
 
             SetWithHeigth();
             FillInitialData();
@@ -127,12 +123,6 @@ namespace Subtitler.Forms
             LoadSettingsConfiguration();
         }
 
-        private void LoadSettingsConfiguration()
-        {
-            Utils.LoadComboBoxPlaylist(comboBoxPlaylist, checkBoxPlaylist, this.settings.SettingsConfiguration);
-            Utils.LoadTextBoxFolder(textBoxFolder, this.settings.SettingsConfiguration);
-        }
-
         private void FillComboBoxData()
         {
             comboBoxEpisodesFileExtension.Items.Clear();
@@ -152,7 +142,6 @@ namespace Subtitler.Forms
 
         private void PreviewSubtitiles()
         {
-            //if (comboBoxSubtitlesFileExtension.SelectedIndex < 0 || comboBoxSubtitlesFileExtension.SelectedIndex < 0 || comboBoxMethod.SelectedIndex < 0)
             if (string.IsNullOrWhiteSpace(comboBoxEpisodesFileExtension.Text) || string.IsNullOrWhiteSpace(comboBoxSubtitlesFileExtension.Text) || comboBoxMethod.SelectedIndex < 0)
             {
                 return;
@@ -266,7 +255,25 @@ namespace Subtitler.Forms
 
         private void OpenSettingsForm()
         {
-            settingsForm.ShowDialog();
+            SettingsForm settingsForm = this.serviceProvider.GetRequiredService<SettingsForm>();
+            //settingsForm.Closed += (s, args) => LoadSettingsConfiguration();
+            settingsForm.ShowDialog(this);
+        }
+
+        public void LoadSettingsConfiguration(AppSettings appSettings = null)
+        {
+            AppSettings currentAppSettings;
+            if (appSettings != null)
+            {
+                currentAppSettings = appSettings;
+            }
+            else
+            {
+                currentAppSettings = this.settings;
+            }
+
+            Utils.LoadComboBoxPlaylist(comboBoxPlaylist, checkBoxPlaylist, currentAppSettings.SettingsConfiguration);
+            Utils.LoadTextBoxFolder(textBoxFolder, currentAppSettings.SettingsConfiguration);
         }
     }
 }

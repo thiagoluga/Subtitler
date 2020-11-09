@@ -124,6 +124,7 @@
             this.buttonUnRegisterShellMenu.TabIndex = 0;
             this.buttonUnRegisterShellMenu.Text = "UnRegister Shell Menu";
             this.buttonUnRegisterShellMenu.UseVisualStyleBackColor = true;
+            this.buttonUnRegisterShellMenu.Click += new System.EventHandler(this.buttonUnRegisterShellMenu_Click);
             // 
             // label2
             // 
@@ -142,6 +143,7 @@
             this.buttonRegisterShellMenu.TabIndex = 0;
             this.buttonRegisterShellMenu.Text = "Register Shell Menu";
             this.buttonRegisterShellMenu.UseVisualStyleBackColor = true;
+            this.buttonRegisterShellMenu.Click += new System.EventHandler(this.buttonRegisterShellMenu_Click);
             // 
             // SettingsForm
             // 
