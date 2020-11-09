@@ -1,9 +1,0 @@
-C:\repos\thiagoluga\Subtitler\src\Subtitler.Core\Subtitler.Core\bin\Release\netcoreapp3.1\Subtitler.Core.deps.json
-C:\repos\thiagoluga\Subtitler\src\Subtitler.Core\Subtitler.Core\bin\Release\netcoreapp3.1\Subtitler.Core.dll
-C:\repos\thiagoluga\Subtitler\src\Subtitler.Core\Subtitler.Core\bin\Release\netcoreapp3.1\Subtitler.Core.pdb
-C:\repos\thiagoluga\Subtitler\src\Subtitler.Core\Subtitler.Core\obj\Release\netcoreapp3.1\Subtitler.Core.csprojAssemblyReference.cache
-C:\repos\thiagoluga\Subtitler\src\Subtitler.Core\Subtitler.Core\obj\Release\netcoreapp3.1\Subtitler.Core.AssemblyInfoInputs.cache
-C:\repos\thiagoluga\Subtitler\src\Subtitler.Core\Subtitler.Core\obj\Release\netcoreapp3.1\Subtitler.Core.AssemblyInfo.cs
-C:\repos\thiagoluga\Subtitler\src\Subtitler.Core\Subtitler.Core\obj\Release\netcoreapp3.1\Subtitler.Core.csproj.CoreCompileInputs.cache
-C:\repos\thiagoluga\Subtitler\src\Subtitler.Core\Subtitler.Core\obj\Release\netcoreapp3.1\Subtitler.Core.dll
-C:\repos\thiagoluga\Subtitler\src\Subtitler.Core\Subtitler.Core\obj\Release\netcoreapp3.1\Subtitler.Core.pdb
